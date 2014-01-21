@@ -1,0 +1,31 @@
+﻿@* Make sure to always use fully-qualified type names or to import the necessary namespaces with the @using directive 
+to avoid runtime error when RazorEngine compiles your templates. *@
+
+@model ConsoleApplication.Models.UserModel
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Welcome</title>
+</head>
+<body>
+    <p>
+        Hi @Model.Name,
+    </p>
+    <p>
+        Thanks for signing up to <a href="http://awesomesite.com">our awesome site</a>!
+    </p>
+
+    @if (!Model.IsPremiumUser)
+    {
+        <p>
+            To make the most of it, <a href="http://awesomesite.com/upgrade">ugrapde to our premium package now</a>!
+        </p>
+    }
+
+    <p>John, Founder</p>
+    
+</body>
+</html>
