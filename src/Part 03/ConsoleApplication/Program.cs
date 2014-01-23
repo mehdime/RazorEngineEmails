@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Configuration;
+using System.Web.WebPages.Razor.Configuration;
 using ConsoleApplication.Models;
 using RazorEngine;
 using RazorEngine.Configuration.Xml;
@@ -23,6 +26,9 @@ namespace ConsoleApplication
              * 
              * We'll generate the same email 3 times in a row - first without caching and then with caching.
              * We'll measure and print how long each try takes.
+             * 
+             * Also demonstrates how to retrieve the list of default namespaces to use when generating the template class
+             * from the ASP.NET MVC configuration section in the web.config file.
              */
 
             var welcomeEmailTemplate = File.ReadAllText(Path.Combine(TemplateFolderPath, "WelcomeEmail.cshtml"));
@@ -31,7 +37,7 @@ namespace ConsoleApplication
             var templateService = new TemplateService();
 
             // Add the default namespaces that will be automatically imported in all template classes
-            templateService.AddNamespace("ConsoleApplication.Models");
+            AddDefaultNamespacesFromWebConfig(templateService);
 
             //-- Warm-up
             var emailHtmlBody = templateService.Parse(welcomeEmailTemplate, model, null, null);
@@ -76,6 +82,28 @@ Try #2: 0ms
 Try #3: 0ms
              * 
              */
+        }
+
+        /// <summary>
+        /// Add the namespaces found in the ASP.NET MVC configuration section of the Web.config file to the provided TemplateService instance.
+        /// </summary>
+        private static void AddDefaultNamespacesFromWebConfig(TemplateService templateService)
+        {
+            var webConfigPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Web.config");
+            if (!File.Exists(webConfigPath))
+                return;
+
+            var fileMap = new ExeConfigurationFileMap() { ExeConfigFilename = webConfigPath };
+            var configuration = ConfigurationManager.OpenMappedExeConfiguration(fileMap, ConfigurationUserLevel.None);
+            var razorConfig = configuration.GetSection("system.web.webPages.razor/pages") as RazorPagesSection;
+
+            if (razorConfig == null)
+                return;
+
+            foreach (NamespaceInfo namespaceInfo in razorConfig.Namespaces)
+            {
+                templateService.AddNamespace(namespaceInfo.Namespace);
+            }
         }
     }
 }
