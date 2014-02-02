@@ -1,0 +1,29 @@
+﻿@model ConsoleApplication.Models.WelcomeModel
+
+@{
+    Layout = "MyLayout";
+}
+
+<h2>
+    Hi @Model.UserName,
+</h2>
+<div>
+    Welcome here
+</div>
+
+@{
+    var winner = new Random().Next() == 42;
+}
+
+@if (winner)
+{
+    <div>
+        Congratulations! You're a winner. Choose your gift:
+        @foreach (var gift in Model.Gifts)
+        {
+            <p>
+                @Html.ActionLink(gift.Description, "Details", "Gifts", new {giftId = gift.Id})
+            </p>
+        }
+    </div>
+}
