@@ -8,7 +8,7 @@ Quick description of each project:
 1. [Introduction](http://mehdi.me/generating-html-emails-with-razorengine-introduction/)
 2. [Basics: generating your first email](http://mehdi.me/generating-html-emails-with-razorengine-basics-generating-your-first-email/)
 3. [More Basics: caching, VS integration & namespace config ](http://mehdi.me/generating-html-emails-with-razorengine-part-03-caching-vs-integration-namespace-config/)
-4. Taking a step back: what is Razor and what does RazorEngine actually do? (TBD)
+4. [Taking a step back: what is Razor and what does RazorEngine actually do?](http://mehdi.me/generating-html-emails-with-razorengine-part-04-taking-a-step-back-behind-the-scenes-of-razor-and-razorengine/)
 5. URL generation & T4MVC integration with RazorEngine (TBD)
 6. Layouts with RazorEngine (TBD)
 7. Partials with RazorEngine (TBD)
