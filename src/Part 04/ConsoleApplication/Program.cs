@@ -40,6 +40,8 @@ namespace ConsoleApplication
             File.WriteAllText("GeneratedByAspNetRazorViewEngine.cs", GenerateCodeWithAspNetRazorViewEngine(templatePath));
             Console.WriteLine("Done. Stored in " + Path.GetFullPath("GeneratedByAspNetRazorViewEngine.cs"));
 
+	        Console.WriteLine();
+
             Console.WriteLine("Generating Razor view source code using the RazorEngine library...");
             File.WriteAllText("GeneratedByRazorEngine.cs", GenerateCodeWithRazorEngine(templatePath, typeof(WelcomeModel)));
             Console.WriteLine("Done. Stored in " + Path.GetFullPath("GeneratedByRazorEngine.cs"));

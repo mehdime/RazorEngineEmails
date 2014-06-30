@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Part 01 - Introduction", "Part 01 - Introduction", "{270681E4-BF81-49C8-AA84-052DC5BA7B53}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Part 02 - Basics", "Part 02 - Basics", "{89B8DA0D-F66E-4013-B790-83C4F09C2628}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication 02", "Part 2\ConsoleApplication\ConsoleApplication 02.csproj", "{108F7A13-CB16-4EFD-BECE-221EF3236774}"
@@ -14,6 +12,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Part 04 - Inside Razor", "Part 04 - Inside Razor", "{FCE49AF8-EC83-4057-8B12-C0E05B2F39A1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication 04", "Part 04\ConsoleApplication\ConsoleApplication 04.csproj", "{D7FFE5C1-A4F0-4EDB-BB4D-79855CA9A4AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{3911354C-B671-44BA-9189-3EA82F772625}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
